@@ -1,5 +1,6 @@
 import { Dispatch } from "redux";
 import { AppState } from "./store";
+import { ThunkAction, ThunkDispatch } from "redux-thunk";
 
 export type State1 = {
   someString1: string;
@@ -29,8 +30,10 @@ export const reducer1 = (
   }
 };
 
-export const thunkActionCreator1 = (thunkParam: string) => (
-  dispatch: Dispatch<Action1>,
+export const thunkActionCreator1 = (
+  thunkParam: string
+): ThunkAction<void, AppState, void, Action1> => (
+  dispatch: Dispatch<Action1>, // ThunkDispatch<AppState, void, Action1>
   getState: () => AppState
 ) => {
   const state: AppState = getState();
