@@ -1,3 +1,6 @@
+import { Dispatch } from "redux";
+import { AppState } from "./store";
+
 export type State1 = {
   someString1: string;
   someFlag1: boolean;
@@ -23,5 +26,15 @@ export const reducer1 = (
       return { ...state, someFlag1: !state.someFlag1 };
     default:
       return state;
+  }
+};
+
+export const thunkActionCreator1 = (thunkParam: string) => (
+  dispatch: Dispatch<Action1>,
+  getState: () => AppState
+) => {
+  const state: AppState = getState();
+  if (state.chunk1.someFlag1) {
+    dispatch({ type: "CHUNK1/SET_SOME_STRING1", payload: thunkParam });
   }
 };

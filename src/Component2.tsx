@@ -38,7 +38,10 @@ const mapStateToProps = (state: AppState): StateProps => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<Action2>): DispatchProps => ({
   changeSomeNumber2: (newValue: string) =>
-    dispatch({ type: "CHUNK2/SET_SOME_NUMBER2", payload: newValue }),
+    dispatch({
+      type: "CHUNK2/SET_SOME_NUMBER2",
+      payload: Number(newValue) || 0
+    }),
   toggleSomeFlag2: () => dispatch({ type: "CHUNK2/TOGGLE_SOME_FLAG2" })
 });
 

@@ -9,7 +9,7 @@ const initialState2: State2 = {
 };
 
 export type Action2 =
-  | { type: "CHUNK2/SET_SOME_NUMBER2"; payload: string }
+  | { type: "CHUNK2/SET_SOME_NUMBER2"; payload: number }
   | { type: "CHUNK2/TOGGLE_SOME_FLAG2" };
 
 export const reducer2 = (
@@ -18,7 +18,7 @@ export const reducer2 = (
 ): State2 => {
   switch (action.type) {
     case "CHUNK2/SET_SOME_NUMBER2":
-      return { ...state, someNumber2: Number(action.payload) || 0 };
+      return { ...state, someNumber2: action.payload };
     case "CHUNK2/TOGGLE_SOME_FLAG2":
       return { ...state, someFlag2: !state.someFlag2 };
     default:

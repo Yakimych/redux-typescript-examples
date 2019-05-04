@@ -14,10 +14,8 @@ const mainReducer = combineReducers({
   chunk2: reducer2
 });
 
-export const configureStore = (extraArg: string) =>
+export const configureStore = () =>
   createStore(
     mainReducer,
-    composeWithDevTools(
-      applyMiddleware(thunkMiddleware.withExtraArgument(extraArg))
-    )
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
   );
